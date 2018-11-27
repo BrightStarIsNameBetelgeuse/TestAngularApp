@@ -1,4 +1,7 @@
-<div>
-  <p>name: {{test.name | uppercase}}</p>
-  <input [(ngModel)]="test.name" placeholder="name">
-</div>
+<h2>My Data</h2>
+<ul class="data-list">
+  <li *ngFor="let dataItem of data" (click)="onSelect(dataItem)" [class.selected]="dataItem === selectedData">
+    <span class="badge">{{dataItem.id}}</span> {{dataItem.name}}
+  </li>
+</ul>
+<app-data-detail [data]="selectedData"></app-data-detail>
